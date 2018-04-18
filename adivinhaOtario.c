@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <time.h>
 #define tentativas 5
 
 int main() {
@@ -10,8 +11,10 @@ int main() {
     printf("* Bem-vindo ao nosso jogo de adivinhação *\n");
     printf("*****************************************\n");
     int numero_secreto,numero_aleatorio;
+    int segundos = time(0);
 
-    numero_aleatorio = rand();
+    srand(segundos);
+    numero_aleatorio = segundos;
     numero_secreto = numero_aleatorio % 100;
 
     char nome[20];
