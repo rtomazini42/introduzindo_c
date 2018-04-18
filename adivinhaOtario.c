@@ -9,7 +9,10 @@ int main() {
     printf("******************************************\n");
     printf("* Bem-vindo ao nosso jogo de adivinhação *\n");
     printf("*****************************************\n");
-    int numero_secreto = 42;
+    int numero_secreto,numero_aleatorio;
+
+    numero_aleatorio = rand();
+    numero_secreto = numero_aleatorio % 100;
 
     char nome[20];
     printf("O nome do fdp q ta jogando\n");
@@ -47,5 +50,5 @@ int main() {
             printf("Errou otario %s\n\n", nome);
         }
     }
-    printf("Cabo porra");
-    }
+    printf("Cabo porra era %d", numero_secreto);
+}
