@@ -15,20 +15,26 @@ int main() {
     scanf("%s", &nome);
 
     int chute;
-    printf("Chuta aí arrombado!\n");
-    scanf("%d", &chute);
 
-    if (chute == numero_secreto){
-        printf("Acertou miseravi\n");
+    for(int i = 1; i <= 3; i++){
+        printf("Chuta aí arrombado!\nTentativa %d de 3\n", i);
+        scanf("%d", &chute);
 
+        int acertou = (chute == numero_secreto);
+
+        if (acertou){
+            printf("Acertou miseravi\n");
+            break;
+
+        }
+        else{
+                if(chute > numero_secreto){
+                    printf("O chute foi maior\n");
+                }
+                if(chute < numero_secreto){
+                    printf("Chute menor q o numero\n");
+                }
+            printf("Errou otario %s\n\n", nome);
+        }
     }
-    else{
-            if(chute > numero_secreto){
-                printf("O chute foi maior\n");
-            }
-            if(chute < numero_secreto){
-                printf("Chute menor q o numero\n");
-            }
-        printf("Errou otario %s", nome);
     }
-}
