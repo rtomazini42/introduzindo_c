@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#define tentativas 5
 
 int main() {
 
@@ -16,8 +17,8 @@ int main() {
 
     int chute;
 
-    for(int i = 1; i <= 3; i++){
-        printf("Chuta aí arrombado!\nTentativa %d de 3\n", i);
+    for(int i = 1; i <= tentativas; i++){
+        printf("Chuta aí arrombado!\nTentativa %d de %d\n", i,tentativas);
         scanf("%d", &chute);
 
         int acertou = (chute == numero_secreto);
@@ -37,4 +38,5 @@ int main() {
             printf("Errou otario %s\n\n", nome);
         }
     }
+    printf("Cabo porra");
     }
