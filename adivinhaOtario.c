@@ -15,16 +15,25 @@ int main() {
     printf("O nome do fdp q ta jogando\n");
     scanf("%s", &nome);
 
-    int chute;
+    int chute,pontos;
 
     for(int i = 1; i <= tentativas; i++){
         printf("Chuta aí arrombado!\nTentativa %d de %d\n", i,tentativas);
         scanf("%d", &chute);
 
+        if (chute < 0){
+            printf("\nTu é retardado? Sem numero negativo porra\n");
+            i--;
+            continue;
+        }
+
         int acertou = (chute == numero_secreto);
 
         if (acertou){
             printf("Acertou miseravi\n");
+            pontos = 11 - i;
+            printf("Voce marcou: %d pontos\n\n", pontos);
+
             break;
 
         }
