@@ -6,7 +6,7 @@ int main() {
 
     setlocale(LC_ALL, "Portuguese");
     printf("******************************************\n");
-    printf("* Bem-vindo ao nosso jogo de adivinha��o *\n");
+    printf("* Bem-vindo ao nosso jogo de adivinhação *\n");
     printf("*****************************************\n");
     int numero_secreto = 42;
 
@@ -15,7 +15,7 @@ int main() {
     scanf("%s", &nome);
 
     int chute;
-    printf("Chuta a� arrombado!\n");
+    printf("Chuta aí arrombado!\n");
     scanf("%d", &chute);
 
     if (chute == numero_secreto){
@@ -23,6 +23,12 @@ int main() {
 
     }
     else{
+            if(chute > numero_secreto){
+                printf("O chute foi maior\n");
+            }
+            if(chute < numero_secreto){
+                printf("Chute menor q o numero\n");
+            }
         printf("Errou otario %s", nome);
     }
 }
