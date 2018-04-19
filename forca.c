@@ -8,16 +8,27 @@ printf("*************");
 printf("\n****FORCA****\n");
 printf("*************\n");
 }
-void chuta(char chutes[26],int t){
+void chuta(char chutes[26],int* t){
         char chute;
 
         printf("\nChuta aí otario: \n");
         scanf(" %c", &chute);
 
-        chutes[t] = chute;
-        t++;}
+        chutes[*t] = chute;
+        (*t)++;}
 
 
+
+int jachutou(char letra, char chutes[26], int tentativas){
+    int achou = 0;
+    for(int j = 0; j < tentativas; j++){
+        if (chutes[j] == letra) {
+            achou = 1;
+            break;
+        }
+    }
+    return achou;
+}
 
 
 int main()
@@ -34,14 +45,10 @@ int main()
     do{
         //imprime letra secreta
         for (int i = 0; i < strlen(palavra); i++){
-            int achou = 0;
-            for(int j = 0; j < tentativas; j++){
-                if (chutes[j] == palavra[i]) {
-                    achou = 1;
-                    break;
+            int achou = jachutou(palavra[i],chutes, tentativas);
 
-                }
-            }
+
+
             if(achou){
                 printf("%c",palavra[i]);
 
@@ -53,8 +60,8 @@ int main()
         }
         printf("\n");
 
-        chuta(chutes,tentativas);//capturar
-        tentativas++;
+        chuta(chutes,&tentativas);//capturar
+
 
 
     } while(!acertou && !enforcou);
