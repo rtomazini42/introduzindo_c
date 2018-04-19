@@ -3,6 +3,12 @@
 #include <string.h>
 #include <locale.h>
 
+//globais
+char palavra[20];
+char chutes[26];
+int tentativas = 0;
+
+
 void abertura(){
 printf("*************");
 printf("\n****FORCA****\n");
@@ -30,17 +36,19 @@ int jachutou(char letra, char chutes[26], int tentativas){
     return achou;
 }
 
+void escolhe_palavra(){
+    sprintf(palavra, "corno");
+}
 
 int main()
 {
     setlocale  (LC_ALL, "Portuguese");
-    char palavra[20],chutes[26];
-    sprintf(palavra, "corno");
 
+    escolhe_palavra();
     abertura();
 
     int acertou = 0;
-    int enforcou = 0,tentativas = 0;
+    int enforcou = 0;
 
     do{
         //imprime letra secreta
