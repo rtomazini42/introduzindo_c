@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+#include <time.h>
 
 //globais
 char palavra[20];
 char chutes[26];
-int tentativas = 0;
+int chutes_dados = 0;
 
 
 void abertura(){
@@ -25,9 +26,9 @@ void chuta(char chutes[26],int* t){
 
 
 
-int jachutou(char letra, char chutes[26], int tentativas){
+int jachutou(char letra){
     int achou = 0;
-    for(int j = 0; j < tentativas; j++){
+    for(int j = 0; j < chutes_dados; j++){
         if (chutes[j] == letra) {
             achou = 1;
             break;
@@ -36,8 +37,54 @@ int jachutou(char letra, char chutes[26], int tentativas){
     return achou;
 }
 
+int enforcou(){
+    int erros = 0;
+    for(int i = 0; i < chutes_dados; i++){
+        int existe = 0;
+        for(int j = 0;j <strlen(palavra);j++)
+            {if (chutes[i] == palavra[j]){
+                existe = 1;
+                break;
+            }
+
+        }
+        if(!existe) erros++;
+    }
+
+
+    return erros >= 5;
+}
+
+int acertou(){
+    for(int i = 0; i <strlen(palavra);i++){
+        if(!jachutou(palavra[i])){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+
 void escolhe_palavra(){
-    sprintf(palavra, "corno");
+    FILE* f;
+
+    f = fopen("palavras.txt", "r");
+    //linha abaixo caso não tenha palavras.txt
+    if(f==0){
+        printf("\n\nDesculpe, falta o banco de palavras");
+        exit(10);
+    }
+    int qtddepalavras;
+    fscanf(f,"%d", &qtddepalavras);
+
+    srand(time(0));
+    int randomico = rand() % qtddepalavras;
+
+    for(int i = 0; i <= randomico; i++){
+        fscanf(f, "%s", palavra);
+    }
+    fclose(f);
 }
 
 int main()
@@ -47,13 +94,13 @@ int main()
     escolhe_palavra();
     abertura();
 
-    int acertou = 0;
-    int enforcou = 0;
+    //int acertou = 0;
+    //int enforcou = 0;
 
     do{
         //imprime letra secreta
         for (int i = 0; i < strlen(palavra); i++){
-            int achou = jachutou(palavra[i],chutes, tentativas);
+            int achou = jachutou(palavra[i]);
 
 
 
@@ -68,16 +115,21 @@ int main()
         }
         printf("\n");
 
-        chuta(chutes,&tentativas);//capturar
+        chuta(chutes,&chutes_dados);//capturar
 
 
 
-    } while(!acertou && !enforcou);
+    } while(!acertou()&& !enforcou());
     {
-        printf("loopando\n");
+        printf("****fim de jogo****\n");
+        if (acertou()){
+            printf("***Ganhou***");
+        }
+        if (enforcou()){
+            printf("-----perdeu-----");
+        }
     }
 
 
     return 0;
 }
-
