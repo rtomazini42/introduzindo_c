@@ -14,3 +14,17 @@ for(int i = 0; i < 20; i++){ //pecorre as colunas da matriz enquanto i for menor
 }
 
 }
+
+
+
+
+
+// alocando espaço para as linhas,
+// que guardam ponteiro de inteiro.
+matriz = malloc(sizeof(int*) * linhas);
+
+// agora, para cada linha, alocamos
+for(int i = 0; i < linhas; i++) {
+    matriz[i] = malloc(sizeof(int) * colunas);
+}
+
