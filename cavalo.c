@@ -36,6 +36,17 @@ void inimigos(){
     }
 }
 
+void cavalo(){
+
+    srand(time(0));
+    int aleY = rand() % 8;
+    int aleX = rand() % 8;
+    if (tabuleiro[aleX][aleY] == 0){
+        tabuleiro[aleX][aleY] = 5;
+    }
+    
+
+}
 
 int main()
 {   //int aux = 0;
@@ -44,7 +55,9 @@ int main()
     while (!pecas == 0){
       inimigos();
       pecas--;
+
     }
+    cavalo();
     imprime_tab();
 
 }
