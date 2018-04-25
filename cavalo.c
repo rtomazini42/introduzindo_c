@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h> // agradecimento a Guilherme Matheus no topico da Alura por me dar dicas de como otimizar o Srand
 
-int tabuleiro[7][7];
+int tabuleiro[8][8];
 int pecas = 8;
 int cavX, cavY;
 
@@ -51,63 +51,64 @@ void cavalo() {
 
 
 void comer() { //nao achei maneira mais simples do que testar todas as jogadas X = linha Y = Coluna
-    int jogada = 0;
+        int jogada = 0;
     //L pra cima e pra baixo
         if(tabuleiro[cavX + 2][cavY+1]== 1){
             if(cavX + 2 >= 0 && cavX +2 < 7 && cavY + 1 >= 0 && cavX +1 < 7){
-                 printf("Jogada possivel no %d %d\n vv>\n", cavX + 2, cavY+1);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n vv>\n", cavX + 2, cavY+1);
+                jogada = 1;
             };
 	}
 		if(tabuleiro[cavX - 2][cavY+1]== 1){
             if(cavX - 2 >= 0 && cavX +2 < 7 && cavY + 1 >= 0 && cavX +1 < 7){
-                 printf("Jogada possivel no %d %d\n ^^>\n", cavX - 2, cavY+1);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n ^^>\n", cavX - 2, cavY+1);
+                jogada = 1;
             };
 	}
 		if(tabuleiro[cavX + 2][cavY-1]== 1){
             if(cavX + 2 >= 0 && cavX +2 < 7 && cavY - 1 >= 0 && cavX -1 < 7){
-                 printf("Jogada possivel no %d %d\n vv<\n", cavX + 2, cavY-1);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n vv<\n", cavX + 2, cavY-1);
+                jogada = 1;
             };
 	}
 		if(tabuleiro[cavX - 2][cavY-1]== 1){
             if(cavX - 2 >= 0 && cavX -2 < 7 && cavY - 1 >= 0 && cavX -1 < 7){
-                 printf("Jogada possivel no %d %d\n ^^<\n", cavX - 2, cavY-1);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n ^^<\n", cavX - 2, cavY-1);
+                jogada = 1;
             };
 	}
         //L lateral
         if(tabuleiro[cavX + 1][cavY +2]== 1){
             if(cavX + 1 >= 0 && cavX +1 < 7 && cavY + 2 >= 0 && cavX +2 < 7){
-                 printf("Jogada possivel no %d %d\n >>v\n", cavX +1, cavY+2);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n >>v\n", cavX +1, cavY+2);
+                jogada = 1;
             };
             }
 
         if(tabuleiro[cavX - 1][cavY +2]== 1){
             if(cavX - 1 >= 0 && cavX -1 < 7 && cavY + 2 >= 0 && cavX +2 < 7){
-                 printf("Jogada possivel no %d %d\n >>^\n", cavX -1, cavY+2);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n >>^\n", cavX -1, cavY+2);
+                jogada = 1;
             };
             }
 
         if(tabuleiro[cavX + 1][cavY -2]== 1){
             if(cavX + 1 >= 0 && cavX +1 < 7 && cavY - 2 >= 0 && cavX -2 < 7){
-                 printf("Jogada possivel no %d %d\n <<v\n", cavX +1, cavY-2);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n <<v\n", cavX +1, cavY-2);
+                jogada = 1;
             };
             }
 
         if(tabuleiro[cavX - 1][cavY -2]== 1){
             if(cavX - 1 >= 0 && cavX -1 < 7 && cavY - 2 >= 0 && cavX -2 < 7){
-                 printf("Jogada possivel no %d %d\n <<^\n", cavX -1, cavY-2);
-                 jogada = 1;
+                printf("Jogada possivel no %d %d\n <<^\n", cavX -1, cavY-2);
+                jogada = 1;
             };
             }
-         if(jogada == 0){
-            printf("\n Sem jogadas possiveis\n\n");
-         }
+        if(jogada == 0){
+            printf("Sem jogadas possiveis\n");
+        }
+
 }
 
 int main()
@@ -125,6 +126,6 @@ int main()
 	printf("\n");
 	printf("O cavalo esta na linha %d  coluna %d\n", cavX , cavY );
 	comer();
-	//imprime_tab();
+
 	//printf("%d %d\n\n",cavX,cavY);
 }
