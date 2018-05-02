@@ -23,7 +23,7 @@ void imprimir(int* arrays[10][10]){
     }
 }
 
-void transpostar(int* posta[10][10],int* matriz[10][10]){
+void transpostar(){
     int aux;
     for(int i = 0; i <10; i++){
         for(int j = 0; j <10; j++){
@@ -39,7 +39,7 @@ int main()
     imprimir(matriz);
     printf("\n");
     printf("\n");
-    transpostar(posta,matriz);
+    transpostar();
     imprimir(posta);
     return 0;
 }
