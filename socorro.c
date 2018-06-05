@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+/** https://www.embarcados.com.br/vetor-de-struct/ */
 
 
 int qtd_inserido = 0;
