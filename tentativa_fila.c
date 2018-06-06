@@ -21,7 +21,7 @@ void pop(int *tam){
 }
 
 void tab(int *lista, int tam){
-    for (int i = 0; i != tam; i++){
+    for (int i = 0; i < tam ; i++){
        printf("%i ", lista[i]);
     }
 }
@@ -41,8 +41,10 @@ int main()
         printf("\n\n Que valor quer inserir?\n");
         scanf("%d",num);
         push(&lista,num, &tam);
+        tab(&lista,tam);
               }
     if (escolha == 2){
         pop(&lista);
+        tab(&lista,tam);
     }
 }
