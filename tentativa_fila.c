@@ -22,7 +22,7 @@ void pop(int *tam){
 
 void tab(int *lista, int tam){
     for (int i = 0; i != tam; i++){
-       printf("%i",lista[i]);
+       printf("%i ", lista[i]);
     }
 }
 
@@ -31,6 +31,7 @@ int main()
 
     push(lista,3,&tam);
     push(lista,2,&tam);
+    push(lista,1,&tam);
     push(lista,1,&tam);
     tab(&lista,tam);
     printf("\n\n");
