@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -73,7 +74,7 @@ void escolhe_palavra(){
     //linha abaixo caso não tenha palavras.txt
     if(f==0){
         printf("\n\nDesculpe, falta o banco de palavras");
-        exit(10);
+        exit(0);
     }
     int qtddepalavras;
     fscanf(f,"%d", &qtddepalavras);
@@ -126,6 +127,7 @@ int main()
             printf("***Ganhou***");
         }
         if (enforcou()){
+            printf("\n A palavra era:  %s\n", &palavra);
             printf("-----perdeu-----");
         }
     }
