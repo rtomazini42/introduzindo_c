@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -50,9 +49,11 @@ int enforcou(){
 
         }
         if(!existe) erros++;
+
+
     }
 
-
+    printf("erros restantes: %i de 5 \n", erros);
     return erros >= 5;
 }
 
@@ -77,12 +78,14 @@ void escolhe_palavra(){
         exit(0);
     }
     int qtddepalavras;
-    fscanf(f,"%d", &qtddepalavras);
+    fscanf(f,"%d\n", &qtddepalavras);
 
-    srand(time(0));
+    //srand(time(0));
+    //printf("%i\n", qtddepalavras);
     int randomico = rand() % qtddepalavras;
-
+    //printf("%i", randomico);
     for(int i = 0; i <= randomico; i++){
+
         fscanf(f, "%s", palavra);
     }
     fclose(f);
@@ -91,7 +94,7 @@ void escolhe_palavra(){
 int main()
 {
     setlocale  (LC_ALL, "Portuguese");
-
+    srand(time(0));
     escolhe_palavra();
     abertura();
 
