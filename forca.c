@@ -80,10 +80,10 @@ void escolhe_palavra(){
     int qtddepalavras;
     fscanf(f,"%d\n", &qtddepalavras);
 
-    //srand(time(0));
-    //printf("%i\n", qtddepalavras);
+    srand(time(0));
+   // printf("%i\n", qtddepalavras);
     int randomico = rand() % qtddepalavras;
-    //printf("%i", randomico);
+   // printf("%i", randomico);
     for(int i = 0; i <= randomico; i++){
 
         fscanf(f, "%s", palavra);
