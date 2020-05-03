@@ -28,6 +28,7 @@ void imprime_tab() {
 void posicionar(int quem) {
 
 	do {
+		
 		posY = rand() % 8;
 		posX = rand() % 8;
 	} while (tabuleiro[posX][posY] != 0);
