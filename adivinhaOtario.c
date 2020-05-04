@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <time.h>
-#define tentativas 5
+#define tentativas 10
 
 int main() {
 
     setlocale(LC_ALL, "Portuguese");
     printf("******************************************\n");
-    printf("* Bem-vindo ao nosso jogo de adivinhação *\n");
+    printf("*  Bem-vindo ao nosso jogo de adivinhação  *\n");
     printf("*****************************************\n");
     int numero_secreto,numero_aleatorio;
     int segundos = time(0);
