@@ -20,7 +20,7 @@ fclose(f);
 
 int main()
 {
-    printf("Hello world!\n");
+    printf("Abrindo arquivo\n");
     abrir();
     return 0;
 }
