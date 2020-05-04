@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> // agradecimento a Guilherme Matheus no topico da Alura por me dar dicas de como otimizar o Srand
+#include <time.h> 
 
 int tabuleiro[8][8];
 int pecas = 8;
